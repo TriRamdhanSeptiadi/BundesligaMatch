@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    tools:context=".fragment.StandingFragment">
+
+    <TextView
+        android:id="@+id/tvTitleStanding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/swipe"
+        android:layout_marginBottom="-40dp"
+        android:gravity="center"
+        android:text="KLASEMEN BUNDESLIGA 2022-2023"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <!-- CardView di luar SwipeRefreshLayout -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitleStanding"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="#1A1A1A"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvPosition"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="POS"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTeamName"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="TEAM"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvPosition"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTeamName"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text=" MP"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="W"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="D"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="L"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="GF-GA"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="GD"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text=" PTS"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStanding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:listitem="@layout/standing_item"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <ProgressBar
+        android:id="@+id/mainProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>

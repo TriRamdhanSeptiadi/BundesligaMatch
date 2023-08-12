@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="active">
+        <item>@color/orange_one</item>
+        <item>@color/orange_two</item>
+        <item>@color/orange_three</item>
+    </array>
+
+    <array name="inactive">
+        <item>@color/dark_one</item>
+        <item>@color/dark_two</item>
+        <item>@color/dark_three</item>
+    </array>
+</resources>
